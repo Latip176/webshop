@@ -1,0 +1,16 @@
+{
+    "data": {
+        "huxurw": {
+            "nama": "Jasteb V1",
+            "harga": "50.000",
+            "hargaDiskon": "30.000",
+            "diskon": "50"
+        },
+        "jsjjhf": {
+            "nama": "Jasteb V2",
+            "harga": "50.000",
+            "hargaDiskon": "30.000",
+            "diskon": "50"
+        }
+    }
+}
