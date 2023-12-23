@@ -1,6 +1,7 @@
 <?php
 $data = file_get_contents('src/admin/database/data_cart.json');
 $data = json_decode($data, true);
+$no = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,6 +80,7 @@ $data = json_decode($data, true);
         <h2 class="text-center">Serba Serbi Jasteb</h2>
         <?php foreach($data['data'] as $dat): ?>
           <div class="card">
+            <?php $no++ ?>
             <div class="label"><span class="head">PRODUK TERLARIS</span></div>
             <span align="center" class="title"><?= $dat['nama'] ?></span>
             <p class="text-muted">Adalah sebuah Script untuk spam result Scam</p>
@@ -86,7 +88,7 @@ $data = json_decode($data, true);
               <p><del class="text-muted">Rp. <?= $dat['hargaDiskon'] ?></del> <span>DISKON <?= $dat['diskon'] ?>%</span></p>
               <p>Rp. <?= $dat['harga'] ?></p>
             </div>
-            <p class="cart cart-1" data-info="Panel V1" id="1"><i class="fas fa-cart-plus"></i> Tambah ke Cart</p>
+            <p class="cart cart-<?= $no ?>" data-info="<?= $dat['nama'] ?>" id="<?= $no ?>"><i class="fas fa-cart-plus"></i> Tambah ke Cart</p>
           </div>
         <?php endforeach ?>
       </div>
@@ -222,7 +224,7 @@ $data = json_decode($data, true);
           const checkout = document.querySelector(".checkout");
           checkout.style.visibility = "visible";
         }
-      }, 100);
+      }, 1000);
       
       promptName();
       initCarts();
