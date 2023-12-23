@@ -47,7 +47,7 @@ $editData = $data['data'][$id];
       <span>Nama</span>
       <input type="text" name="nama" placeholder="masukan nama produk" value="<?= $editData['nama'] ?>">
       <span>Harga Sebelum Diskon</span>
-      <input type="number" name="harga" placeholder="masukan harga produk" value="<?= $editData['harga'] ?>">
+      <input type="number" name="hargaDiskon" placeholder="masukan harga produk" value="<?= $editData['harga'] ?>">
       <span>Harga Sesudah Diskon</span>
       <input type="number" name="harga" placeholder="masukan harga sesudah diskon produk" value="<?= $editData['hargaDiskon'] ?>">
       <span>Diskon</span>
