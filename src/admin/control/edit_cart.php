@@ -46,7 +46,7 @@ $editData = $data['data'][$id];
     <form action="control.php?content=simpan_cart&data=edit&id=<?= $id ?>" method="POST">
       <span>Nama</span>
       <input type="text" name="nama" placeholder="masukan nama produk" value="<?= $editData['nama'] ?>">
-      <span>Harga</span>
+      <span>Harga Sebelum Diskon</span>
       <input type="number" name="harga" placeholder="masukan harga produk" value="<?= $editData['harga'] ?>">
       <span>Harga Sesudah Diskon</span>
       <input type="number" name="harga" placeholder="masukan harga sesudah diskon produk" value="<?= $editData['hargaDiskon'] ?>">

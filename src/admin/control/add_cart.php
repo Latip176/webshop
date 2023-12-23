@@ -36,7 +36,7 @@
     <form action="control.php?content=simpan_cart&data=add" method="POST">
       <span>Nama</span>
       <input type="text" name="nama" placeholder="masukan nama produk">
-      <span>Harga Diskon</span>
+      <span>Harga Sebelum Diskon</span>
       <input type="number" name="hargaDiskon" placeholder="masukan harga produk">
       <span>Harga Sesudah Diskon</span>
       <input type="number" name="harga" placeholder="masukan harga produk">

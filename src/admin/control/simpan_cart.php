@@ -13,7 +13,8 @@ if(isset($_GET['data'])) {
     $newData = array(
       'nama' => $_POST['nama'],
       'harga' => $_POST['harga'],
-      'diskon' => $_POST['diskon']
+      'diskon' => $_POST['diskon'],
+      'hargaDiskon' => $_POST['hargaDiskon']
     );
     $dataG['data'][$id] = $newData;
     
