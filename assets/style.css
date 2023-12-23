@@ -1,0 +1,185 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Rubik Doodle Shadow", sans-serif;
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/assets/img/bg.jpg');
+  background-size: cover;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.content span {
+  font-size: 25px;
+  color: white;
+}
+.list-card {
+  padding-block: 80px;
+  width: 100%;
+}
+.all-script {
+  display: grid;
+  gap: 50px;
+  width: 90%;
+  padding-block: 50px;
+  border: 1px dashed black;
+  margin: auto;
+  place-items: center;
+}
+.all-script .card {
+  margin: auto;
+  width: 300px;
+  height: 400px;
+  border: 2px solid #025464;
+}
+.label {
+  text-align: center;
+  margin-top: -20px;
+}
+.label .head {
+  color: #FF0063;
+  background: #F8F1F1;
+  width: 200px;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 10px;
+  text-align: center;
+  font-family: Arial !important;
+}
+.card .title {
+  font-size: 23px;
+  padding-top: 30px;
+  font-weight: bold;
+  color: #025464;
+  font-family: Arial !important;
+}
+.card p {
+  padding: 10px;
+  font-family: Arial !important;
+  text-align: center;
+}
+.card .price p span {
+  color: #FF0063;
+  background: #F8F1F1;
+  width: 200px;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 10px;
+  text-align: center;
+  font-family: Arial !important;
+}
+.card .price p:nth-child(2) {
+  font-weight: bold;
+  font-size: 30px;
+}
+.card .cart {
+  text-align: center;
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  background-color: #FF0063;
+  margin: auto;
+  width: 80%;
+}
+@media screen and (min-width: 868px) {
+  .all-script {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.close {
+  background-color: #025464;
+  height: 850px;
+  margin-top: 100px;
+  color: white;
+  width: 100%;
+}
+.fitur p {
+  font-style: italic;
+}
+.galeri img {
+  height: 230px !important;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media screen and (min-width: 868px) {
+  .galeri img {
+    height: 500px !important;
+  }
+  .close {
+    height: 1000px;
+  }
+}
+
+.checkout {
+  width: 100%;
+  height: 100px;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  height: 150px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  background-color: #014554;
+}
+
+.payment {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.6);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+.payment .pay {
+  border-radius: 30px;
+  width: 80%;
+  height: 400px;
+  background: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancel, .lanjut {
+  margin-top: 30px;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cancel {
+  background-color: #ccc;
+  color: #333;
+}
+.lanjut {
+  background-color: #4CAF50;
+  color: #fff;
+}
