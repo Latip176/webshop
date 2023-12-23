@@ -86,7 +86,7 @@ $no = 0;
             <p class="text-muted">Adalah sebuah Script untuk spam result Scam</p>
             <div class="price">
               <p><del class="text-muted">Rp. <?= $dat['hargaDiskon'] ?></del> <span>DISKON <?= $dat['diskon'] ?>%</span></p>
-              <p>Rp. <?= $dat['harga'] ?></p>
+              <p id="harga-<?=$no?>" data-info='<?= $dat["harga"] ?>'>Rp. <?= $dat['harga'] ?></p>
             </div>
             <p class="cart cart-<?= $no ?>" data-info="<?= $dat['nama'] ?>" id="<?= $no ?>"><i class="fas fa-cart-plus"></i> Tambah ke Cart</p>
           </div>
@@ -142,6 +142,7 @@ $no = 0;
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     <script type="text/javascript">
+      let dataTotal;
       function promptName() {
         const storedName = localStorage.getItem("nama");
         if (!storedName) {
@@ -167,6 +168,9 @@ $no = 0;
           })
           .then((choice) => {
             if (choice === "benar") {
+              const harga = document.querySelector(`#harga-${idItem}`).getAttribute("data-info");
+              dataTotal += Number(harga);
+              localStorage.setItem('total', dataTotal);
               localStorage.setItem(`data-${idItem}`, namaItem);
               swal({
                 title: "Berhasil!",
@@ -184,16 +188,16 @@ $no = 0;
       function updateCartCount() {
         const count = document.querySelector("#carts-count");
         const chk = document.querySelector("#checkout");
-        const totalBayar = 30000 * (localStorage.length-1);
+        
         chk.addEventListener("click", () => {
           const payment = document.querySelector(".payment");
-          const total = document.querySelector("#total");
+          const totalD = document.querySelector("#total");
           const metodePayment = document.querySelector("#metodePayment");
-          total.innerHTML = totalBayar;
+          totalD.innerHTML = localStorage.getItem('total');;
           payment.style.visibility = "visible";
           
           const selectProduk = [];
-          for(let i = 1; i < localStorage.length; i++) {
+          for(let i = 1; i < localStorage.length-1; i++) {
             selectProduk.push(localStorage.getItem(`data-${i}`));
           }
           
@@ -201,11 +205,11 @@ $no = 0;
             payment.style.visibility = "hidden";
           })
           document.querySelector(".lanjut").addEventListener("click", () => {
-            window.location.href = `https://wa.me/6285946352369?text=Assalamualaikum%20Bang%20Mau%20Checkout%20Pesanan%0AProduk: ${selectProduk.join(", ")}%0AHarga: ${totalBayar}%0APembayaran: ${metodePayment.options[metodePayment.selectedIndex].value}`;
+            window.location.href = `https://wa.me/6285946352369?text=Assalamualaikum%20Bang%20Mau%20Checkout%20Pesanan%0AProduk: ${selectProduk.join(", ")}%0AHarga: ${dataTotal}%0APembayaran: ${metodePayment.options[metodePayment.selectedIndex].value}`;
             localStorage.clear();
           });
         })
-        let cartCount = Math.max(localStorage.length - 1, 0);
+        let cartCount = Math.max(localStorage.length - 2, 0);
         count.innerHTML = cartCount;
         document.querySelector("#jumlah-keranjang").innerHTML = cartCount;
       }
@@ -218,12 +222,18 @@ $no = 0;
       }
       
       setInterval(() => {
+        if(localStorage.getItem('total') == null) {
+          localStorage.setItem('total', 0);
+        }
+        dataTotal = Number(localStorage.getItem('total'));
+        
         updateCartCount();
         
-        if(localStorage.length > 1) {
+        if(localStorage.length > 2) {
           const checkout = document.querySelector(".checkout");
           checkout.style.visibility = "visible";
         }
+        
       }, 1000);
       
       promptName();
