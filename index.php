@@ -169,7 +169,7 @@ $no = 0;
           .then((choice) => {
             if (choice === "benar") {
               const harga = document.querySelector(`#harga-${idItem}`).getAttribute("data-info");
-              dataTotal += Number(harga);
+              dataTotal += Number(harga.replace(/\./g, ""));
               localStorage.setItem('total', dataTotal);
               localStorage.setItem(`data-${idItem}`, namaItem);
               swal({
